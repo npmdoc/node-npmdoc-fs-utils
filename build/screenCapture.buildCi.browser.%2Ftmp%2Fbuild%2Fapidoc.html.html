@@ -1,0 +1,5005 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/assemble/fs-utils">fs-utils (v0.7.0)</a>
+</h1>
+<h4>fs extras and utilities to extend the node.js file system module. Used in Assemble and many other projects.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils">module fs-utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.addSlash">
+            function <span class="apidocSignatureSpan">fs-utils.</span>addSlash
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.copyFileSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>copyFileSync
+            <span class="apidocSignatureSpan">(src, dest)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.del">
+            function <span class="apidocSignatureSpan">fs-utils.</span>del
+            <span class="apidocSignatureSpan">(patterns, opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.deleteAsync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>deleteAsync
+            <span class="apidocSignatureSpan">(patterns, opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.deleteSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>deleteSync
+            <span class="apidocSignatureSpan">(patterns, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.dirname">
+            function <span class="apidocSignatureSpan">fs-utils.</span>dirname
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.doesPathContain">
+            function <span class="apidocSignatureSpan">fs-utils.</span>doesPathContain
+            <span class="apidocSignatureSpan">(ancestor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.equivalent">
+            function <span class="apidocSignatureSpan">fs-utils.</span>equivalent
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.exists">
+            function <span class="apidocSignatureSpan">fs-utils.</span>exists
+            <span class="apidocSignatureSpan">(paths)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.ext">
+            function <span class="apidocSignatureSpan">fs-utils.</span>ext
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.first">
+            function <span class="apidocSignatureSpan">fs-utils.</span>first
+            <span class="apidocSignatureSpan">(filepath, num)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.glob">
+            function <span class="apidocSignatureSpan">fs-utils.</span>glob
+            <span class="apidocSignatureSpan">(patterns, config, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.glob.sync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>glob.sync
+            <span class="apidocSignatureSpan">(patterns, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isAbsolute">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isAbsolute
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isDir">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isDir
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isEmptyDir">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isEmptyDir
+            <span class="apidocSignatureSpan">(fp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isEmptyFile">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isEmptyFile
+            <span class="apidocSignatureSpan">(fp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isFile">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isFile
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isLink">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isLink
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isPathCwd">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isPathCwd
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isPathInCwd">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isPathInCwd
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.last">
+            function <span class="apidocSignatureSpan">fs-utils.</span>last
+            <span class="apidocSignatureSpan">(filepath, num)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.lastChar">
+            function <span class="apidocSignatureSpan">fs-utils.</span>lastChar
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.mkdir">
+            function <span class="apidocSignatureSpan">fs-utils.</span>mkdir
+            <span class="apidocSignatureSpan">(dest, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.mkdirSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>mkdirSync
+            <span class="apidocSignatureSpan">(dirpath, mode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.normalize">
+            function <span class="apidocSignatureSpan">fs-utils.</span>normalize
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.normalizePath">
+            function <span class="apidocSignatureSpan">fs-utils.</span>normalizePath
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readData">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readData
+            <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readDataSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readDataSync
+            <span class="apidocSignatureSpan">(filepath, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readFile">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readFile
+            <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readFileSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readFileSync
+            <span class="apidocSignatureSpan">(filepath, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readJSON">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readJSON
+            <span class="apidocSignatureSpan">(filepath, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readJSONSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readJSONSync
+            <span class="apidocSignatureSpan">(filepath, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readYAML">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readYAML
+            <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readYAMLSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readYAMLSync
+            <span class="apidocSignatureSpan">(filepath, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.relative">
+            function <span class="apidocSignatureSpan">fs-utils.</span>relative
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.removeSlash">
+            function <span class="apidocSignatureSpan">fs-utils.</span>removeSlash
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.resolve">
+            function <span class="apidocSignatureSpan">fs-utils.</span>resolve
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.rmdir">
+            function <span class="apidocSignatureSpan">fs-utils.</span>rmdir
+            <span class="apidocSignatureSpan">(dir, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.segments">
+            function <span class="apidocSignatureSpan">fs-utils.</span>segments
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.slashify">
+            function <span class="apidocSignatureSpan">fs-utils.</span>slashify
+            <span class="apidocSignatureSpan">(str, trailing)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.stripBOM">
+            function <span class="apidocSignatureSpan">fs-utils.</span>stripBOM
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.stripCR">
+            function <span class="apidocSignatureSpan">fs-utils.</span>stripCR
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils">
+            function <span class="apidocSignatureSpan">fs-utils.</span>utils
+            <span class="apidocSignatureSpan">(mod, name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeData">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeData
+            <span class="apidocSignatureSpan">(dest, data, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeDataSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeDataSync
+            <span class="apidocSignatureSpan">(dest, data, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeFile">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeFile
+            <span class="apidocSignatureSpan">(dest, content, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeFileSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeFileSync
+            <span class="apidocSignatureSpan">(dest, str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeJSON">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeJSON
+            <span class="apidocSignatureSpan">(dest, str, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeJSONSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeJSONSync
+            <span class="apidocSignatureSpan">(dest, str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeYAML">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeYAML
+            <span class="apidocSignatureSpan">(dest, data, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeYAMLSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeYAMLSync
+            <span class="apidocSignatureSpan">(dest, str, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.addSlash">module fs-utils.addSlash</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.addSlash.addSlash">
+            function <span class="apidocSignatureSpan">fs-utils.</span>addSlash
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.copyFileSync">module fs-utils.copyFileSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.copyFileSync.copyFileSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>copyFileSync
+            <span class="apidocSignatureSpan">(src, dest)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.del">module fs-utils.del</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.del.del">
+            function <span class="apidocSignatureSpan">fs-utils.</span>del
+            <span class="apidocSignatureSpan">(patterns, opts, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.deleteAsync">module fs-utils.deleteAsync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.deleteAsync.deleteAsync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>deleteAsync
+            <span class="apidocSignatureSpan">(patterns, opts, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.deleteSync">module fs-utils.deleteSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.deleteSync.deleteSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>deleteSync
+            <span class="apidocSignatureSpan">(patterns, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.dirname">module fs-utils.dirname</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.dirname.dirname">
+            function <span class="apidocSignatureSpan">fs-utils.</span>dirname
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.doesPathContain">module fs-utils.doesPathContain</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.doesPathContain.doesPathContain">
+            function <span class="apidocSignatureSpan">fs-utils.</span>doesPathContain
+            <span class="apidocSignatureSpan">(ancestor)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.equivalent">module fs-utils.equivalent</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.equivalent.equivalent">
+            function <span class="apidocSignatureSpan">fs-utils.</span>equivalent
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.exists">module fs-utils.exists</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.exists.exists">
+            function <span class="apidocSignatureSpan">fs-utils.</span>exists
+            <span class="apidocSignatureSpan">(paths)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.ext">module fs-utils.ext</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.ext.ext">
+            function <span class="apidocSignatureSpan">fs-utils.</span>ext
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.first">module fs-utils.first</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.first.first">
+            function <span class="apidocSignatureSpan">fs-utils.</span>first
+            <span class="apidocSignatureSpan">(filepath, num)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.glob">module fs-utils.glob</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.glob.glob">
+            function <span class="apidocSignatureSpan">fs-utils.</span>glob
+            <span class="apidocSignatureSpan">(patterns, config, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.glob.sync">
+            function <span class="apidocSignatureSpan">fs-utils.glob.</span>sync
+            <span class="apidocSignatureSpan">(patterns, config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.glob.sync">module fs-utils.glob.sync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.glob.sync.sync">
+            function <span class="apidocSignatureSpan">fs-utils.glob.</span>sync
+            <span class="apidocSignatureSpan">(patterns, config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.isAbsolute">module fs-utils.isAbsolute</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isAbsolute.isAbsolute">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isAbsolute
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.isDir">module fs-utils.isDir</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isDir.isDir">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isDir
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.isEmptyDir">module fs-utils.isEmptyDir</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isEmptyDir.isEmptyDir">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isEmptyDir
+            <span class="apidocSignatureSpan">(fp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.isEmptyFile">module fs-utils.isEmptyFile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isEmptyFile.isEmptyFile">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isEmptyFile
+            <span class="apidocSignatureSpan">(fp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.isFile">module fs-utils.isFile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isFile.isFile">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isFile
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.isLink">module fs-utils.isLink</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isLink.isLink">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isLink
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.isPathCwd">module fs-utils.isPathCwd</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isPathCwd.isPathCwd">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isPathCwd
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.isPathInCwd">module fs-utils.isPathInCwd</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.isPathInCwd.isPathInCwd">
+            function <span class="apidocSignatureSpan">fs-utils.</span>isPathInCwd
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.last">module fs-utils.last</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.last.last">
+            function <span class="apidocSignatureSpan">fs-utils.</span>last
+            <span class="apidocSignatureSpan">(filepath, num)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.lastChar">module fs-utils.lastChar</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.lastChar.lastChar">
+            function <span class="apidocSignatureSpan">fs-utils.</span>lastChar
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.mkdir">module fs-utils.mkdir</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.mkdir.mkdir">
+            function <span class="apidocSignatureSpan">fs-utils.</span>mkdir
+            <span class="apidocSignatureSpan">(dest, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.mkdirSync">module fs-utils.mkdirSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.mkdirSync.mkdirSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>mkdirSync
+            <span class="apidocSignatureSpan">(dirpath, mode)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.normalize">module fs-utils.normalize</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.normalize.normalize">
+            function <span class="apidocSignatureSpan">fs-utils.</span>normalize
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.normalizePath">module fs-utils.normalizePath</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.normalizePath.normalizePath">
+            function <span class="apidocSignatureSpan">fs-utils.</span>normalizePath
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.readData">module fs-utils.readData</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readData.readData">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readData
+            <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.readDataSync">module fs-utils.readDataSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readDataSync.readDataSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readDataSync
+            <span class="apidocSignatureSpan">(filepath, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.readFile">module fs-utils.readFile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readFile.readFile">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readFile
+            <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.readFileSync">module fs-utils.readFileSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readFileSync.readFileSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readFileSync
+            <span class="apidocSignatureSpan">(filepath, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.readJSON">module fs-utils.readJSON</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readJSON.readJSON">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readJSON
+            <span class="apidocSignatureSpan">(filepath, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.readJSONSync">module fs-utils.readJSONSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readJSONSync.readJSONSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readJSONSync
+            <span class="apidocSignatureSpan">(filepath, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.readYAML">module fs-utils.readYAML</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readYAML.readYAML">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readYAML
+            <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.readYAMLSync">module fs-utils.readYAMLSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.readYAMLSync.readYAMLSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>readYAMLSync
+            <span class="apidocSignatureSpan">(filepath, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.relative">module fs-utils.relative</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.relative.relative">
+            function <span class="apidocSignatureSpan">fs-utils.</span>relative
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.removeSlash">module fs-utils.removeSlash</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.removeSlash.removeSlash">
+            function <span class="apidocSignatureSpan">fs-utils.</span>removeSlash
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.resolve">module fs-utils.resolve</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.resolve.resolve">
+            function <span class="apidocSignatureSpan">fs-utils.</span>resolve
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.rmdir">module fs-utils.rmdir</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.rmdir.rmdir">
+            function <span class="apidocSignatureSpan">fs-utils.</span>rmdir
+            <span class="apidocSignatureSpan">(dir, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.segments">module fs-utils.segments</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.segments.segments">
+            function <span class="apidocSignatureSpan">fs-utils.</span>segments
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.slashify">module fs-utils.slashify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.slashify.slashify">
+            function <span class="apidocSignatureSpan">fs-utils.</span>slashify
+            <span class="apidocSignatureSpan">(str, trailing)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.stripBOM">module fs-utils.stripBOM</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.stripBOM.stripBOM">
+            function <span class="apidocSignatureSpan">fs-utils.</span>stripBOM
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.stripCR">module fs-utils.stripCR</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.stripCR.stripCR">
+            function <span class="apidocSignatureSpan">fs-utils.</span>stripCR
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.utils">module fs-utils.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.utils">
+            function <span class="apidocSignatureSpan">fs-utils.</span>utils
+            <span class="apidocSignatureSpan">(mod, name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.del">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>del
+            <span class="apidocSignatureSpan">(fp, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.extend">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>extend
+            <span class="apidocSignatureSpan">(o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.glob">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>glob
+            <span class="apidocSignatureSpan">(patterns, config, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.isAbs">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>isAbs
+            <span class="apidocSignatureSpan">(fp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.normalize">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>normalize
+            <span class="apidocSignatureSpan">(str, stripTrailing)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.readYaml">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>readYaml
+            <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.relative">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>relative
+            <span class="apidocSignatureSpan">(a, b, stat)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.tryStat">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>tryStat
+            <span class="apidocSignatureSpan">(fp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.typeOf">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>typeOf
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.writeData">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>writeData
+            <span class="apidocSignatureSpan">(dest, data, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.writeFile">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>writeFile
+            <span class="apidocSignatureSpan">(dest, str, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.writeJson">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>writeJson
+            <span class="apidocSignatureSpan">(dest, obj, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.utils.writeYaml">
+            function <span class="apidocSignatureSpan">fs-utils.utils.</span>writeYaml
+            <span class="apidocSignatureSpan">(dest, data, opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fs-utils.utils.</span>YAML</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fs-utils.utils.</span>async</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fs-utils.utils.</span>readData</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.writeData">module fs-utils.writeData</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeData.writeData">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeData
+            <span class="apidocSignatureSpan">(dest, data, options, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.writeDataSync">module fs-utils.writeDataSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeDataSync.writeDataSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeDataSync
+            <span class="apidocSignatureSpan">(dest, data, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.writeFile">module fs-utils.writeFile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeFile.writeFile">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeFile
+            <span class="apidocSignatureSpan">(dest, content, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.writeFileSync">module fs-utils.writeFileSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeFileSync.writeFileSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeFileSync
+            <span class="apidocSignatureSpan">(dest, str, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.writeJSON">module fs-utils.writeJSON</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeJSON.writeJSON">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeJSON
+            <span class="apidocSignatureSpan">(dest, str, options, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.writeJSONSync">module fs-utils.writeJSONSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeJSONSync.writeJSONSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeJSONSync
+            <span class="apidocSignatureSpan">(dest, str, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.writeYAML">module fs-utils.writeYAML</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeYAML.writeYAML">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeYAML
+            <span class="apidocSignatureSpan">(dest, data, options, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-utils.writeYAMLSync">module fs-utils.writeYAMLSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-utils.writeYAMLSync.writeYAMLSync">
+            function <span class="apidocSignatureSpan">fs-utils.</span>writeYAMLSync
+            <span class="apidocSignatureSpan">(dest, str, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils" id="apidoc.module.fs-utils">module fs-utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.addSlash" id="apidoc.element.fs-utils.addSlash">
+        function <span class="apidocSignatureSpan">fs-utils.</span>addSlash
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addSlash = function (filepath) {
+  if (!/\./.test(path.basename(filepath))) {
+    return removeSlash(filepath) + path.sep;
+  }
+  return filepath;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.copyFileSync" id="apidoc.element.fs-utils.copyFileSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>copyFileSync
+        <span class="apidocSignatureSpan">(src, dest)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">copyFileSync = function (src, dest) {
+  exports.writeFileSync(dest, exports.readFileSync(src));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.del" id="apidoc.element.fs-utils.del">
+        function <span class="apidocSignatureSpan">fs-utils.</span>del
+        <span class="apidocSignatureSpan">(patterns, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">del = function (patterns, opts, cb) {
+  var args = [].slice.call(arguments);
+  var last = args[args.length - 1];
+
+  if (typeof last === 'function') {
+    exports.deleteAsync(patterns, opts);
+  } else {
+    exports.deleteSync(patterns, opts);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+utils.async.each(files, function (segment, next) {
+  var dir = path.join(dir, segment);
+  fs.stat(dir, function (err, stats) {
+    if (err) {
+      return cb(err);
+    }
+    if (stats.isDirectory()) {
+      utils.<span class="apidocCodeKeywordSpan">del</span>(dir, next);
+    } else {
+      fs.unlink(dir, next);
+    }
+  });
+}, function () {
+  fs.rmdir(dir, cb);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.deleteAsync" id="apidoc.element.fs-utils.deleteAsync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>deleteAsync
+        <span class="apidocSignatureSpan">(patterns, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deleteAsync = function (patterns, opts, cb) {
+  if (typeof opts !== 'object') {
+    cb = opts;
+    opts = {};
+  }
+
+  utils.glob(patterns, opts, function (err, files) {
+    if (err) {
+      cb(err);
+      return;
+    }
+    utils.async.each(files, function (filepath, next) {
+      if (opts.cwd &amp;&amp; !exports.isAbsolute(filepath)) {
+        filepath = path.resolve(opts.cwd, filepath);
+      }
+
+      utils.del(filepath, next);
+    }, cb);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*/
+
+exports.del = function(patterns, opts, cb) {
+ var args = [].slice.call(arguments);
+ var last = args[args.length - 1];
+
+ if (typeof last === 'function') {
+   exports.<span class="apidocCodeKeywordSpan">deleteAsync</span>(patterns, opts);
+ } else {
+   exports.deleteSync(patterns, opts);
+ }
+};
+
+/**
+* Asynchronously delete folders and files.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.deleteSync" id="apidoc.element.fs-utils.deleteSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>deleteSync
+        <span class="apidocSignatureSpan">(patterns, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deleteSync = function (patterns, options) {
+  var opts = utils.extend({cwd: process.cwd()}, options);
+  utils.glob.sync(patterns, opts).forEach(function (filepath) {
+    if (opts.cwd) {
+      filepath = path.resolve(opts.cwd, filepath);
+    }
+    utils.del.sync(filepath);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+exports.del = function(patterns, opts, cb) {
+ var args = [].slice.call(arguments);
+ var last = args[args.length - 1];
+
+ if (typeof last === 'function') {
+   exports.deleteAsync(patterns, opts);
+ } else {
+   exports.<span class="apidocCodeKeywordSpan">deleteSync</span>(patterns, opts);
+ }
+};
+
+/**
+* Asynchronously delete folders and files.
+*
+* @param  {String} `patterns` Glob patterns to use.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.dirname" id="apidoc.element.fs-utils.dirname">
+        function <span class="apidocSignatureSpan">fs-utils.</span>dirname
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dirname = function (filepath) {
+  return isFile(filepath)
+    ? path.dirname(filepath)
+    : filepath;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Asynchronously create dirs and any intermediate dirs
+ * don't exist.
+ *
+ * @param  {String} `dirpath`
+ */
+
+var mkdir = exports.mkdir = function(dest, cb) {
+var dir = path.<span class="apidocCodeKeywordSpan">dirname</span>(dest);
+fs.exists(dir, function (exist) {
+  if (exist) {
+    fs.mkdir(dest, cb);
+  } else {
+    mkdir(dir, function (err) {
+      if (err) return cb(err);
+      fs.mkdir(dest, cb);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.doesPathContain" id="apidoc.element.fs-utils.doesPathContain">
+        function <span class="apidocSignatureSpan">fs-utils.</span>doesPathContain
+        <span class="apidocSignatureSpan">(ancestor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">doesPathContain = function (ancestor) {
+  ancestor = path.resolve(ancestor);
+
+  var args = [].slice.call(arguments, 1);
+  var len = arguments.length;
+  if (len === 0) {
+    return false;
+  }
+
+  var rel;
+  for (var i = 0; i &lt; len; i++) {
+    rel = path.relative(resolve(args[i]), ancestor);
+    if (rel === '' || /\w+/.test(rel)) {
+      return false;
+    }
+  }
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @api public
+ */
+
+exports.isPathInCwd = function(filepath) {
+  try {
+    var actual = fs.realpathSync(path.resolve(filepath));
+    console.log(actual);
+    return exports.<span class="apidocCodeKeywordSpan">doesPathContain</span>(process.cwd(), actual);
+  } catch (err) {
+    return false;
+  }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.equivalent" id="apidoc.element.fs-utils.equivalent">
+        function <span class="apidocSignatureSpan">fs-utils.</span>equivalent
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">equivalent = function (a, b) {
+  return resolve(a) === resolve(b);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @return {Boolean}
+* @api public
+*/
+
+exports.isPathCwd = function(filepath) {
+ try {
+   var actual = fs.realpathSync(filepath);
+   return exports.<span class="apidocCodeKeywordSpan">equivalent</span>(process.cwd(), actual);
+ } catch (err) {
+   return false;
+ }
+};
+
+/**
+* True if a filepath is contained within the CWD.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.exists" id="apidoc.element.fs-utils.exists">
+        function <span class="apidocSignatureSpan">fs-utils.</span>exists
+        <span class="apidocSignatureSpan">(paths)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exists = function (paths) {
+  var fp = path.join.apply(path, arguments);
+  try {
+    return fs.existsSync(fp);
+  } catch (err) {}
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * don't exist.
+ *
+ * @param  {String} `dirpath`
+ */
+
+var mkdir = exports.mkdir = function(dest, cb) {
+var dir = path.dirname(dest);
+fs.<span class="apidocCodeKeywordSpan">exists</span>(dir, function (exist) {
+  if (exist) {
+    fs.mkdir(dest, cb);
+  } else {
+    mkdir(dir, function (err) {
+      if (err) return cb(err);
+      fs.mkdir(dest, cb);
+    });
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.ext" id="apidoc.element.fs-utils.ext">
+        function <span class="apidocSignatureSpan">fs-utils.</span>ext
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ext = function (filepath) {
+  return path.extname(filepath);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.first" id="apidoc.element.fs-utils.first">
+        function <span class="apidocSignatureSpan">fs-utils.</span>first
+        <span class="apidocSignatureSpan">(filepath, num)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">first = function (filepath, num) {
+  var seg = segments(filepath);
+  return seg.slice(num || 1)
+    .join(path.sep);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.glob" id="apidoc.element.fs-utils.glob">
+        function <span class="apidocSignatureSpan">fs-utils.</span>glob
+        <span class="apidocSignatureSpan">(patterns, config, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">glob = function (patterns, config, cb) {
+  if (typeof config === 'function') {
+    cb = config;
+    config = {};
+  }
+
+  if (typeof cb !== 'function') {
+    throw new Error('expected a callback function.');
+  }
+
+  if (!utils.isValidGlob(patterns)) {
+    cb(new Error('invalid glob pattern: ' + patterns));
+    return;
+  }
+
+  // shallow clone options
+  var options = utils.extend({cwd: ''}, config);
+  options.cwd = cwd(options);
+  var sifted = siftPatterns(patterns, options);
+  var Glob = utils.glob.Glob;
+  var glob;
+
+  function updateOptions(inclusive) {
+    return setIgnores(options, sifted.excludes, inclusive.index);
+  }
+
+  utils.reduce(sifted.includes, [], function (acc, include, next) {
+    var opts = updateOptions(include);
+    if (acc.glob) {
+      opts.cache = acc.glob.cache;
+    }
+
+    glob = new Glob(include.pattern, opts, function (err, files) {
+      if (err) return next(err);
+
+      acc = acc.concat(files);
+      acc.glob = glob;
+      next(null, acc);
+    });
+  }, function(err, files) {
+    if (err) return cb(err);
+    delete files.glob;
+    cb(null, files);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+exports.deleteAsync = function(patterns, opts, cb) {
+if (typeof opts !== 'object') {
+  cb = opts;
+  opts = {};
+}
+
+utils.<span class="apidocCodeKeywordSpan">glob</span>(patterns, opts, function (err, files) {
+  if (err) {
+    cb(err);
+    return;
+  }
+  utils.async.each(files, function (filepath, next) {
+    if (opts.cwd &amp;&amp; !exports.isAbsolute(filepath)) {
+      filepath = path.resolve(opts.cwd, filepath);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.glob.sync" id="apidoc.element.fs-utils.glob.sync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>glob.sync
+        <span class="apidocSignatureSpan">(patterns, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">glob.sync = function (patterns, config) {
+  if (!utils.isValidGlob(patterns)) {
+    throw new Error('invalid glob pattern: ' + patterns);
+  }
+
+  // shallow clone options
+  var options = utils.extend({cwd: ''}, config);
+  options.cwd = cwd(options);
+  var sifted = siftPatterns(patterns, options);
+  var Glob = utils.glob.Glob;
+  var glob;
+
+  var len = sifted.includes.length, i = -1;
+  var files = [];
+
+  while (++i &lt; len) {
+    var include = sifted.includes[i];
+    var opts = setIgnores(options, sifted.excludes, include.index);
+    opts.sync = true;
+    if (glob &amp;&amp; glob.cache) {
+      opts.cache = glob.cache;
+    }
+    glob = new Glob(include.pattern, opts);
+    files.push.apply(files, glob.found);
+  }
+  return files;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param  {Object} `options` Options for matched.
+ * @param  {Function} `cb`
+ * @api private
+ */
+
+exports.deleteSync = function(patterns, options) {
+  var opts = utils.extend({cwd: process.cwd()}, options);
+  utils.<span class="apidocCodeKeywordSpan">glob.sync</span>(patterns, opts).forEach(function (filepath) {
+    if (opts.cwd) {
+      filepath = path.resolve(opts.cwd, filepath);
+    }
+    utils.del.sync(filepath);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isAbsolute" id="apidoc.element.fs-utils.isAbsolute">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isAbsolute
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isAbsolute = function (filepath) {
+  return utils.isAbs.apply(utils.isAbs, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  utils.glob(patterns, opts, function (err, files) {
+    if (err) {
+      cb(err);
+      return;
+    }
+    utils.async.each(files, function (filepath, next) {
+      if (opts.cwd &amp;&amp; !exports.<span class="apidocCodeKeywordSpan">isAbsolute</span>(filepath)) {
+        filepath = path.resolve(opts.cwd, filepath);
+      }
+
+      utils.del(filepath, next);
+    }, cb);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isDir" id="apidoc.element.fs-utils.isDir">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isDir
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isDir = function (filepath) {
+  if (!exists(filepath)) {
+    return false;
+  }
+  return fs.statSync(filepath)
+    .isDirectory();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isEmptyDir" id="apidoc.element.fs-utils.isEmptyDir">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isEmptyDir
+        <span class="apidocSignatureSpan">(fp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isEmptyDir = function (fp) {
+  if (exists(fp) === false) {
+    return false;
+  }
+  var files = fs.readdirSync(fp);
+  return files.length &gt; 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isEmptyFile" id="apidoc.element.fs-utils.isEmptyFile">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isEmptyFile
+        <span class="apidocSignatureSpan">(fp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isEmptyFile = function (fp) {
+  if (exists(fp) === false) {
+    return false;
+  }
+  var str = exports.readFileSync(fp);
+  return str.length &gt; 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isFile" id="apidoc.element.fs-utils.isFile">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isFile
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isFile = function (filepath) {
+  if (!exists(filepath)) {
+    return false;
+  }
+  return fs.statSync(filepath)
+    .isFile();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*/
+
+var isFile = exports.isFile = function(filepath) {
+ if (!exists(filepath)) {
+   return false;
+ }
+ return fs.statSync(filepath)
+   .<span class="apidocCodeKeywordSpan">isFile</span>();
+};
+
+/**
+* True if the filepath is a symbolic link.
+*
+* @param  {String} `filepath`
+* @return {Boolean}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isLink" id="apidoc.element.fs-utils.isLink">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isLink
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isLink = function (filepath) {
+  return exists(filepath) &amp;&amp; fs.lstatSync(filepath)
+    .isSymbolicLink();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isPathCwd" id="apidoc.element.fs-utils.isPathCwd">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isPathCwd
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPathCwd = function (filepath) {
+  try {
+    var actual = fs.realpathSync(filepath);
+    return exports.equivalent(process.cwd(), actual);
+  } catch (err) {
+    return false;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isPathInCwd" id="apidoc.element.fs-utils.isPathInCwd">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isPathInCwd
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPathInCwd = function (filepath) {
+  try {
+    var actual = fs.realpathSync(path.resolve(filepath));
+    console.log(actual);
+    return exports.doesPathContain(process.cwd(), actual);
+  } catch (err) {
+    return false;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.last" id="apidoc.element.fs-utils.last">
+        function <span class="apidocSignatureSpan">fs-utils.</span>last
+        <span class="apidocSignatureSpan">(filepath, num)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">last = function (filepath, num) {
+  var seg = segments(filepath);
+  return seg.slice(-(num || 1))
+    .join(path.sep);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.lastChar" id="apidoc.element.fs-utils.lastChar">
+        function <span class="apidocSignatureSpan">fs-utils.</span>lastChar
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lastChar = function (filepath) {
+  var len = filepath.length;
+  return filepath[len - 1];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.mkdir" id="apidoc.element.fs-utils.mkdir">
+        function <span class="apidocSignatureSpan">fs-utils.</span>mkdir
+        <span class="apidocSignatureSpan">(dest, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdir = function (dest, cb) {
+  var dir = path.dirname(dest);
+  fs.exists(dir, function (exist) {
+    if (exist) {
+      fs.mkdir(dest, cb);
+    } else {
+      mkdir(dir, function (err) {
+        if (err) return cb(err);
+        fs.mkdir(dest, cb);
+      });
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param  {String} `dirpath`
+ */
+
+var mkdir = exports.mkdir = function(dest, cb) {
+var dir = path.dirname(dest);
+fs.exists(dir, function (exist) {
+  if (exist) {
+    fs.<span class="apidocCodeKeywordSpan">mkdir</span>(dest, cb);
+  } else {
+    mkdir(dir, function (err) {
+      if (err) return cb(err);
+      fs.mkdir(dest, cb);
+    });
+  }
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.mkdirSync" id="apidoc.element.fs-utils.mkdirSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>mkdirSync
+        <span class="apidocSignatureSpan">(dirpath, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdirSync = function (dirpath, mode) {
+  mode = mode || parseInt('0777', 8) &amp; (~process.umask());
+  if (!exists(dirpath)) {
+    var parentDir = path.dirname(dirpath);
+    if (exists(parentDir)) {
+      fs.mkdirSync(dirpath, mode);
+    } else {
+      mkdirSync(parentDir);
+      fs.mkdirSync(dirpath, mode);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+
+var mkdirSync = exports.mkdirSync = function(dirpath, mode) {
+  mode = mode || parseInt('0777', 8) &amp; (~process.umask());
+  if (!exists(dirpath)) {
+    var parentDir = path.dirname(dirpath);
+    if (exists(parentDir)) {
+      fs.<span class="apidocCodeKeywordSpan">mkdirSync</span>(dirpath, mode);
+    } else {
+      mkdirSync(parentDir);
+      fs.mkdirSync(dirpath, mode);
+    }
+  }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.normalize" id="apidoc.element.fs-utils.normalize">
+        function <span class="apidocSignatureSpan">fs-utils.</span>normalize
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalize = function (str){
+  if (EOL !== '\n') {
+    str = str.replace(EOLre, '\n');
+  }
+  return exports.stripBOM(str);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param  {String} `str`
+* @param  {Boolean} `stripTrailing` False by default.
+* @return {String}
+* @api public
+*/
+
+exports.slashify = function(str, trailing) {
+ return utils.<span class="apidocCodeKeywordSpan">normalize</span>(str, trailing || false);
+};
+
+/**
+* Normalize a string by stripping windows
+* carriage returns and byte order marks.
+*
+* @param  {String} `str`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.normalizePath" id="apidoc.element.fs-utils.normalizePath">
+        function <span class="apidocSignatureSpan">fs-utils.</span>normalizePath
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalizePath = function (filepath) {
+  return removeSlash(path.normalize(filepath));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param  {String} `filepath`
+* @return {String}
+*/
+
+var resolve = exports.resolve = function(filepath) {
+ var args = [].slice.call(arguments);
+ var paths = path.resolve.apply(path, args);
+ return exports.<span class="apidocCodeKeywordSpan">normalizePath</span>(paths);
+};
+
+/**
+* Resolve the relative path from `a` to `b.
+*
+* @param  {String} `filepath`
+* @return {String}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readData" id="apidoc.element.fs-utils.readData">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readData
+        <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readData = function (filepath, options, cb) {
+  return utils.readData.data.apply(utils.readData, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readDataSync" id="apidoc.element.fs-utils.readDataSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readDataSync
+        <span class="apidocSignatureSpan">(filepath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readDataSync = function (filepath, options) {
+  return utils.readData.data.sync.apply(utils.readData, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readFile" id="apidoc.element.fs-utils.readFile">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readFile
+        <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFile = function (filepath, options, cb) {
+  if (typeof options === 'function') {
+    cb = options;
+    options = {};
+  }
+
+  if (typeof cb !== 'function') {
+    throw new TypeError('readfile expects callback to be a function');
+  }
+
+  var opts = utils.extend({normalize: true, encoding: 'utf8'}, options);
+
+  fs.readFile(filepath, opts.encoding, function (err, content) {
+    if (err) return cb(err);
+
+    if (opts.normalize &amp;&amp; opts.encoding === 'utf8') {
+      content = exports.normalize(content);
+    }
+    cb(null, content);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (typeof cb !== 'function') {
+  throw new TypeError('readfile expects callback to be a function');
+}
+
+var opts = utils.extend({normalize: true, encoding: 'utf8'}, options);
+
+fs.<span class="apidocCodeKeywordSpan">readFile</span>(filepath, opts.encoding, function (err, content) {
+  if (err) return cb(err);
+
+  if (opts.normalize &amp;&amp; opts.encoding === 'utf8') {
+    content = exports.normalize(content);
+  }
+  cb(null, content);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readFileSync" id="apidoc.element.fs-utils.readFileSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readFileSync
+        <span class="apidocSignatureSpan">(filepath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFileSync = function (filepath, options) {
+  var opts = utils.extend({normalize: true, encoding: 'utf8'}, options);
+  var str = fs.readFileSync(filepath, opts.encoding);
+  if (opts.normalize &amp;&amp; opts.encoding === 'utf8') {
+    str = exports.normalize(str);
+  }
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @api public
+*/
+
+exports.isEmptyFile = function(fp) {
+ if (exists(fp) === false) {
+   return false;
+ }
+ var str = exports.<span class="apidocCodeKeywordSpan">readFileSync</span>(fp);
+ return str.length &gt; 0;
+};
+
+/**
+* Return `true` if the file exists and is empty.
+*
+* @param  {String} `filepath`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readJSON" id="apidoc.element.fs-utils.readJSON">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readJSON
+        <span class="apidocSignatureSpan">(filepath, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readJSON = function (filepath, cb) {
+  exports.readFile(filepath, function(err, contents) {
+    if (err) return cb(err);
+
+    cb(null, JSON.parse(contents.toString()));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readJSONSync" id="apidoc.element.fs-utils.readJSONSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readJSONSync
+        <span class="apidocSignatureSpan">(filepath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readJSONSync = function (filepath, options) {
+  return JSON.parse(exports.readFileSync(filepath, options));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readYAML" id="apidoc.element.fs-utils.readYAML">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readYAML
+        <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readYAML = function (filepath, options, cb) {
+  return utils.readYaml.apply(utils.readYaml, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readYAMLSync" id="apidoc.element.fs-utils.readYAMLSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readYAMLSync
+        <span class="apidocSignatureSpan">(filepath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readYAMLSync = function (filepath, options) {
+  return utils.readYaml.sync.apply(utils.readYaml, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.relative" id="apidoc.element.fs-utils.relative">
+        function <span class="apidocSignatureSpan">fs-utils.</span>relative
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">relative = function (a, b) {
+  return utils.relative.apply(utils.relative, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var len = arguments.length;
+  if (len === 0) {
+    return false;
+  }
+
+  var rel;
+  for (var i = 0; i &lt; len; i++) {
+    rel = path.<span class="apidocCodeKeywordSpan">relative</span>(resolve(args[i]), ancestor);
+    if (rel === '' || /\w+/.test(rel)) {
+      return false;
+    }
+  }
+  return true;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.removeSlash" id="apidoc.element.fs-utils.removeSlash">
+        function <span class="apidocSignatureSpan">fs-utils.</span>removeSlash
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeSlash = function (filepath) {
+  return filepath.replace(/[\\\/]$/, '');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.resolve" id="apidoc.element.fs-utils.resolve">
+        function <span class="apidocSignatureSpan">fs-utils.</span>resolve
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function (filepath) {
+  var args = [].slice.call(arguments);
+  var paths = path.resolve.apply(path, args);
+  return exports.normalizePath(paths);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  utils.glob(patterns, opts, function (err, files) {
+    if (err) {
+      cb(err);
+      return;
+    }
+    utils.async.each(files, function (filepath, next) {
+      if (opts.cwd &amp;&amp; !exports.isAbsolute(filepath)) {
+        filepath = path.<span class="apidocCodeKeywordSpan">resolve</span>(opts.cwd, filepath);
+      }
+
+      utils.del(filepath, next);
+    }, cb);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.rmdir" id="apidoc.element.fs-utils.rmdir">
+        function <span class="apidocSignatureSpan">fs-utils.</span>rmdir
+        <span class="apidocSignatureSpan">(dir, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rmdir = function (dir, cb) {
+  if (typeof cb !== 'function') {
+    cb = function () {};
+  }
+
+  fs.readdir(dir, function (err, files) {
+    if (err) {
+      return cb(err);
+    }
+    utils.async.each(files, function (segment, next) {
+      var dir = path.join(dir, segment);
+      fs.stat(dir, function (err, stats) {
+        if (err) {
+          return cb(err);
+        }
+        if (stats.isDirectory()) {
+          utils.del(dir, next);
+        } else {
+          fs.unlink(dir, next);
+        }
+      });
+    }, function () {
+      fs.rmdir(dir, cb);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+       if (stats.isDirectory()) {
+         utils.del(dir, next);
+       } else {
+         fs.unlink(dir, next);
+       }
+     });
+   }, function () {
+     fs.<span class="apidocCodeKeywordSpan">rmdir</span>(dir, cb);
+   });
+ });
+};
+
+/**
+* Delete folders and files recursively. Pass a callback
+* as the last argument to use utils.async.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.segments" id="apidoc.element.fs-utils.segments">
+        function <span class="apidocSignatureSpan">fs-utils.</span>segments
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">segments = function (filepath) {
+  return filepath.split(/[\\\/]/g);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.slashify" id="apidoc.element.fs-utils.slashify">
+        function <span class="apidocSignatureSpan">fs-utils.</span>slashify
+        <span class="apidocSignatureSpan">(str, trailing)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">slashify = function (str, trailing) {
+  return utils.normalize(str, trailing || false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.stripBOM" id="apidoc.element.fs-utils.stripBOM">
+        function <span class="apidocSignatureSpan">fs-utils.</span>stripBOM
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stripBOM = function (str) {
+  return str.replace(/^\uFEFF/, '');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @api private
+*/
+
+exports.normalize = function(str){
+ if (EOL !== '\n') {
+   str = str.replace(EOLre, '\n');
+ }
+ return exports.<span class="apidocCodeKeywordSpan">stripBOM</span>(str);
+};
+
+/**
+* True if the filepath actually exist.
+*
+* @param  {String} `filepath`
+* @return {Boolean}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.stripCR" id="apidoc.element.fs-utils.stripCR">
+        function <span class="apidocSignatureSpan">fs-utils.</span>stripCR
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stripCR = function (str) {
+  return str.replace(/\r/g, '');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils" id="apidoc.element.fs-utils.utils">
+        function <span class="apidocSignatureSpan">fs-utils.</span>utils
+        <span class="apidocSignatureSpan">(mod, name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">utils = function (mod, name) {
+  name = name || camelcase(mod);
+
+  // check both boolean and string in case `process.env` cases to string
+  if (process.env.UNLAZY === 'true' || process.env.UNLAZY === true) {
+    cache[name] = fn(mod);
+  }
+
+  Object.defineProperty(proxy, name, {
+    enumerable: true,
+    configurable: true,
+    get: getter
+  });
+
+  function getter() {
+    if (cache.hasOwnProperty(name)) {
+      return cache[name];
+    }
+    return (cache[name] = fn(mod));
+  }
+  return getter;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeData" id="apidoc.element.fs-utils.writeData">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeData
+        <span class="apidocSignatureSpan">(dest, data, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeData = function (dest, data, options, cb) {
+  utils.writeData.apply(utils.writeData, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeDataSync" id="apidoc.element.fs-utils.writeDataSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeDataSync
+        <span class="apidocSignatureSpan">(dest, data, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeDataSync = function (dest, data, options) {
+  utils.writeData.sync.apply(utils.writeData, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeFile" id="apidoc.element.fs-utils.writeFile">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeFile
+        <span class="apidocSignatureSpan">(dest, content, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeFile = function (dest, content, cb) {
+  utils.writeFile.apply(utils.writeFile, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeFileSync" id="apidoc.element.fs-utils.writeFileSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeFileSync
+        <span class="apidocSignatureSpan">(dest, str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeFileSync = function (dest, str, options) {
+  utils.writeFile.sync.apply(utils.writeFile, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+* @param  {String} `src`
+* @param  {String} `dest`
+* @api public
+*/
+
+exports.copyFileSync = function(src, dest) {
+ exports.<span class="apidocCodeKeywordSpan">writeFileSync</span>(dest, exports.readFileSync(src));
+};
+
+/**
+* Asynchronously remove dirs and child dirs that exist.
+*
+* @param  {String} `dir`
+* @param  {Function} `cb
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeJSON" id="apidoc.element.fs-utils.writeJSON">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeJSON
+        <span class="apidocSignatureSpan">(dest, str, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeJSON = function (dest, str, options, cb) {
+  utils.writeJson.apply(utils.writeJson, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeJSONSync" id="apidoc.element.fs-utils.writeJSONSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeJSONSync
+        <span class="apidocSignatureSpan">(dest, str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeJSONSync = function (dest, str, options) {
+  utils.writeJson.sync.apply(utils.writeJson, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeYAML" id="apidoc.element.fs-utils.writeYAML">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeYAML
+        <span class="apidocSignatureSpan">(dest, data, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeYAML = function (dest, data, options, cb) {
+  utils.writeYaml.apply(utils.writeYaml, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeYAMLSync" id="apidoc.element.fs-utils.writeYAMLSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeYAMLSync
+        <span class="apidocSignatureSpan">(dest, str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeYAMLSync = function (dest, str, options) {
+  utils.writeYaml.sync.apply(utils.writeYaml, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.addSlash" id="apidoc.module.fs-utils.addSlash">module fs-utils.addSlash</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.addSlash.addSlash" id="apidoc.element.fs-utils.addSlash.addSlash">
+        function <span class="apidocSignatureSpan">fs-utils.</span>addSlash
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addSlash = function (filepath) {
+  if (!/\./.test(path.basename(filepath))) {
+    return removeSlash(filepath) + path.sep;
+  }
+  return filepath;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.copyFileSync" id="apidoc.module.fs-utils.copyFileSync">module fs-utils.copyFileSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.copyFileSync.copyFileSync" id="apidoc.element.fs-utils.copyFileSync.copyFileSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>copyFileSync
+        <span class="apidocSignatureSpan">(src, dest)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">copyFileSync = function (src, dest) {
+  exports.writeFileSync(dest, exports.readFileSync(src));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.del" id="apidoc.module.fs-utils.del">module fs-utils.del</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.del.del" id="apidoc.element.fs-utils.del.del">
+        function <span class="apidocSignatureSpan">fs-utils.</span>del
+        <span class="apidocSignatureSpan">(patterns, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">del = function (patterns, opts, cb) {
+  var args = [].slice.call(arguments);
+  var last = args[args.length - 1];
+
+  if (typeof last === 'function') {
+    exports.deleteAsync(patterns, opts);
+  } else {
+    exports.deleteSync(patterns, opts);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+utils.async.each(files, function (segment, next) {
+  var dir = path.join(dir, segment);
+  fs.stat(dir, function (err, stats) {
+    if (err) {
+      return cb(err);
+    }
+    if (stats.isDirectory()) {
+      utils.<span class="apidocCodeKeywordSpan">del</span>(dir, next);
+    } else {
+      fs.unlink(dir, next);
+    }
+  });
+}, function () {
+  fs.rmdir(dir, cb);
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.deleteAsync" id="apidoc.module.fs-utils.deleteAsync">module fs-utils.deleteAsync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.deleteAsync.deleteAsync" id="apidoc.element.fs-utils.deleteAsync.deleteAsync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>deleteAsync
+        <span class="apidocSignatureSpan">(patterns, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deleteAsync = function (patterns, opts, cb) {
+  if (typeof opts !== 'object') {
+    cb = opts;
+    opts = {};
+  }
+
+  utils.glob(patterns, opts, function (err, files) {
+    if (err) {
+      cb(err);
+      return;
+    }
+    utils.async.each(files, function (filepath, next) {
+      if (opts.cwd &amp;&amp; !exports.isAbsolute(filepath)) {
+        filepath = path.resolve(opts.cwd, filepath);
+      }
+
+      utils.del(filepath, next);
+    }, cb);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*/
+
+exports.del = function(patterns, opts, cb) {
+ var args = [].slice.call(arguments);
+ var last = args[args.length - 1];
+
+ if (typeof last === 'function') {
+   exports.<span class="apidocCodeKeywordSpan">deleteAsync</span>(patterns, opts);
+ } else {
+   exports.deleteSync(patterns, opts);
+ }
+};
+
+/**
+* Asynchronously delete folders and files.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.deleteSync" id="apidoc.module.fs-utils.deleteSync">module fs-utils.deleteSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.deleteSync.deleteSync" id="apidoc.element.fs-utils.deleteSync.deleteSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>deleteSync
+        <span class="apidocSignatureSpan">(patterns, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deleteSync = function (patterns, options) {
+  var opts = utils.extend({cwd: process.cwd()}, options);
+  utils.glob.sync(patterns, opts).forEach(function (filepath) {
+    if (opts.cwd) {
+      filepath = path.resolve(opts.cwd, filepath);
+    }
+    utils.del.sync(filepath);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+exports.del = function(patterns, opts, cb) {
+ var args = [].slice.call(arguments);
+ var last = args[args.length - 1];
+
+ if (typeof last === 'function') {
+   exports.deleteAsync(patterns, opts);
+ } else {
+   exports.<span class="apidocCodeKeywordSpan">deleteSync</span>(patterns, opts);
+ }
+};
+
+/**
+* Asynchronously delete folders and files.
+*
+* @param  {String} `patterns` Glob patterns to use.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.dirname" id="apidoc.module.fs-utils.dirname">module fs-utils.dirname</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.dirname.dirname" id="apidoc.element.fs-utils.dirname.dirname">
+        function <span class="apidocSignatureSpan">fs-utils.</span>dirname
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dirname = function (filepath) {
+  return isFile(filepath)
+    ? path.dirname(filepath)
+    : filepath;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Asynchronously create dirs and any intermediate dirs
+ * don't exist.
+ *
+ * @param  {String} `dirpath`
+ */
+
+var mkdir = exports.mkdir = function(dest, cb) {
+var dir = path.<span class="apidocCodeKeywordSpan">dirname</span>(dest);
+fs.exists(dir, function (exist) {
+  if (exist) {
+    fs.mkdir(dest, cb);
+  } else {
+    mkdir(dir, function (err) {
+      if (err) return cb(err);
+      fs.mkdir(dest, cb);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.doesPathContain" id="apidoc.module.fs-utils.doesPathContain">module fs-utils.doesPathContain</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.doesPathContain.doesPathContain" id="apidoc.element.fs-utils.doesPathContain.doesPathContain">
+        function <span class="apidocSignatureSpan">fs-utils.</span>doesPathContain
+        <span class="apidocSignatureSpan">(ancestor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">doesPathContain = function (ancestor) {
+  ancestor = path.resolve(ancestor);
+
+  var args = [].slice.call(arguments, 1);
+  var len = arguments.length;
+  if (len === 0) {
+    return false;
+  }
+
+  var rel;
+  for (var i = 0; i &lt; len; i++) {
+    rel = path.relative(resolve(args[i]), ancestor);
+    if (rel === '' || /\w+/.test(rel)) {
+      return false;
+    }
+  }
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @api public
+ */
+
+exports.isPathInCwd = function(filepath) {
+  try {
+    var actual = fs.realpathSync(path.resolve(filepath));
+    console.log(actual);
+    return exports.<span class="apidocCodeKeywordSpan">doesPathContain</span>(process.cwd(), actual);
+  } catch (err) {
+    return false;
+  }
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.equivalent" id="apidoc.module.fs-utils.equivalent">module fs-utils.equivalent</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.equivalent.equivalent" id="apidoc.element.fs-utils.equivalent.equivalent">
+        function <span class="apidocSignatureSpan">fs-utils.</span>equivalent
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">equivalent = function (a, b) {
+  return resolve(a) === resolve(b);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @return {Boolean}
+* @api public
+*/
+
+exports.isPathCwd = function(filepath) {
+ try {
+   var actual = fs.realpathSync(filepath);
+   return exports.<span class="apidocCodeKeywordSpan">equivalent</span>(process.cwd(), actual);
+ } catch (err) {
+   return false;
+ }
+};
+
+/**
+* True if a filepath is contained within the CWD.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.exists" id="apidoc.module.fs-utils.exists">module fs-utils.exists</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.exists.exists" id="apidoc.element.fs-utils.exists.exists">
+        function <span class="apidocSignatureSpan">fs-utils.</span>exists
+        <span class="apidocSignatureSpan">(paths)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exists = function (paths) {
+  var fp = path.join.apply(path, arguments);
+  try {
+    return fs.existsSync(fp);
+  } catch (err) {}
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * don't exist.
+ *
+ * @param  {String} `dirpath`
+ */
+
+var mkdir = exports.mkdir = function(dest, cb) {
+var dir = path.dirname(dest);
+fs.<span class="apidocCodeKeywordSpan">exists</span>(dir, function (exist) {
+  if (exist) {
+    fs.mkdir(dest, cb);
+  } else {
+    mkdir(dir, function (err) {
+      if (err) return cb(err);
+      fs.mkdir(dest, cb);
+    });
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.ext" id="apidoc.module.fs-utils.ext">module fs-utils.ext</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.ext.ext" id="apidoc.element.fs-utils.ext.ext">
+        function <span class="apidocSignatureSpan">fs-utils.</span>ext
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ext = function (filepath) {
+  return path.extname(filepath);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.first" id="apidoc.module.fs-utils.first">module fs-utils.first</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.first.first" id="apidoc.element.fs-utils.first.first">
+        function <span class="apidocSignatureSpan">fs-utils.</span>first
+        <span class="apidocSignatureSpan">(filepath, num)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">first = function (filepath, num) {
+  var seg = segments(filepath);
+  return seg.slice(num || 1)
+    .join(path.sep);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.glob" id="apidoc.module.fs-utils.glob">module fs-utils.glob</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.glob.glob" id="apidoc.element.fs-utils.glob.glob">
+        function <span class="apidocSignatureSpan">fs-utils.</span>glob
+        <span class="apidocSignatureSpan">(patterns, config, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">glob = function (patterns, config, cb) {
+  if (typeof config === 'function') {
+    cb = config;
+    config = {};
+  }
+
+  if (typeof cb !== 'function') {
+    throw new Error('expected a callback function.');
+  }
+
+  if (!utils.isValidGlob(patterns)) {
+    cb(new Error('invalid glob pattern: ' + patterns));
+    return;
+  }
+
+  // shallow clone options
+  var options = utils.extend({cwd: ''}, config);
+  options.cwd = cwd(options);
+  var sifted = siftPatterns(patterns, options);
+  var Glob = utils.glob.Glob;
+  var glob;
+
+  function updateOptions(inclusive) {
+    return setIgnores(options, sifted.excludes, inclusive.index);
+  }
+
+  utils.reduce(sifted.includes, [], function (acc, include, next) {
+    var opts = updateOptions(include);
+    if (acc.glob) {
+      opts.cache = acc.glob.cache;
+    }
+
+    glob = new Glob(include.pattern, opts, function (err, files) {
+      if (err) return next(err);
+
+      acc = acc.concat(files);
+      acc.glob = glob;
+      next(null, acc);
+    });
+  }, function(err, files) {
+    if (err) return cb(err);
+    delete files.glob;
+    cb(null, files);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+exports.deleteAsync = function(patterns, opts, cb) {
+if (typeof opts !== 'object') {
+  cb = opts;
+  opts = {};
+}
+
+utils.<span class="apidocCodeKeywordSpan">glob</span>(patterns, opts, function (err, files) {
+  if (err) {
+    cb(err);
+    return;
+  }
+  utils.async.each(files, function (filepath, next) {
+    if (opts.cwd &amp;&amp; !exports.isAbsolute(filepath)) {
+      filepath = path.resolve(opts.cwd, filepath);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.glob.sync" id="apidoc.element.fs-utils.glob.sync">
+        function <span class="apidocSignatureSpan">fs-utils.glob.</span>sync
+        <span class="apidocSignatureSpan">(patterns, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sync = function (patterns, config) {
+  if (!utils.isValidGlob(patterns)) {
+    throw new Error('invalid glob pattern: ' + patterns);
+  }
+
+  // shallow clone options
+  var options = utils.extend({cwd: ''}, config);
+  options.cwd = cwd(options);
+  var sifted = siftPatterns(patterns, options);
+  var Glob = utils.glob.Glob;
+  var glob;
+
+  var len = sifted.includes.length, i = -1;
+  var files = [];
+
+  while (++i &lt; len) {
+    var include = sifted.includes[i];
+    var opts = setIgnores(options, sifted.excludes, include.index);
+    opts.sync = true;
+    if (glob &amp;&amp; glob.cache) {
+      opts.cache = glob.cache;
+    }
+    glob = new Glob(include.pattern, opts);
+    files.push.apply(files, glob.found);
+  }
+  return files;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param  {Object} `options` Options for matched.
+ * @param  {Function} `cb`
+ * @api private
+ */
+
+exports.deleteSync = function(patterns, options) {
+  var opts = utils.extend({cwd: process.cwd()}, options);
+  utils.glob.<span class="apidocCodeKeywordSpan">sync</span>(patterns, opts).forEach(function (filepath) {
+    if (opts.cwd) {
+      filepath = path.resolve(opts.cwd, filepath);
+    }
+    utils.del.sync(filepath);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.glob.sync" id="apidoc.module.fs-utils.glob.sync">module fs-utils.glob.sync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.glob.sync.sync" id="apidoc.element.fs-utils.glob.sync.sync">
+        function <span class="apidocSignatureSpan">fs-utils.glob.</span>sync
+        <span class="apidocSignatureSpan">(patterns, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sync = function (patterns, config) {
+  if (!utils.isValidGlob(patterns)) {
+    throw new Error('invalid glob pattern: ' + patterns);
+  }
+
+  // shallow clone options
+  var options = utils.extend({cwd: ''}, config);
+  options.cwd = cwd(options);
+  var sifted = siftPatterns(patterns, options);
+  var Glob = utils.glob.Glob;
+  var glob;
+
+  var len = sifted.includes.length, i = -1;
+  var files = [];
+
+  while (++i &lt; len) {
+    var include = sifted.includes[i];
+    var opts = setIgnores(options, sifted.excludes, include.index);
+    opts.sync = true;
+    if (glob &amp;&amp; glob.cache) {
+      opts.cache = glob.cache;
+    }
+    glob = new Glob(include.pattern, opts);
+    files.push.apply(files, glob.found);
+  }
+  return files;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param  {Object} `options` Options for matched.
+ * @param  {Function} `cb`
+ * @api private
+ */
+
+exports.deleteSync = function(patterns, options) {
+  var opts = utils.extend({cwd: process.cwd()}, options);
+  utils.glob.<span class="apidocCodeKeywordSpan">sync</span>(patterns, opts).forEach(function (filepath) {
+    if (opts.cwd) {
+      filepath = path.resolve(opts.cwd, filepath);
+    }
+    utils.del.sync(filepath);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.isAbsolute" id="apidoc.module.fs-utils.isAbsolute">module fs-utils.isAbsolute</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isAbsolute.isAbsolute" id="apidoc.element.fs-utils.isAbsolute.isAbsolute">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isAbsolute
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isAbsolute = function (filepath) {
+  return utils.isAbs.apply(utils.isAbs, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  utils.glob(patterns, opts, function (err, files) {
+    if (err) {
+      cb(err);
+      return;
+    }
+    utils.async.each(files, function (filepath, next) {
+      if (opts.cwd &amp;&amp; !exports.<span class="apidocCodeKeywordSpan">isAbsolute</span>(filepath)) {
+        filepath = path.resolve(opts.cwd, filepath);
+      }
+
+      utils.del(filepath, next);
+    }, cb);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.isDir" id="apidoc.module.fs-utils.isDir">module fs-utils.isDir</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isDir.isDir" id="apidoc.element.fs-utils.isDir.isDir">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isDir
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isDir = function (filepath) {
+  if (!exists(filepath)) {
+    return false;
+  }
+  return fs.statSync(filepath)
+    .isDirectory();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.isEmptyDir" id="apidoc.module.fs-utils.isEmptyDir">module fs-utils.isEmptyDir</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isEmptyDir.isEmptyDir" id="apidoc.element.fs-utils.isEmptyDir.isEmptyDir">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isEmptyDir
+        <span class="apidocSignatureSpan">(fp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isEmptyDir = function (fp) {
+  if (exists(fp) === false) {
+    return false;
+  }
+  var files = fs.readdirSync(fp);
+  return files.length &gt; 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.isEmptyFile" id="apidoc.module.fs-utils.isEmptyFile">module fs-utils.isEmptyFile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isEmptyFile.isEmptyFile" id="apidoc.element.fs-utils.isEmptyFile.isEmptyFile">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isEmptyFile
+        <span class="apidocSignatureSpan">(fp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isEmptyFile = function (fp) {
+  if (exists(fp) === false) {
+    return false;
+  }
+  var str = exports.readFileSync(fp);
+  return str.length &gt; 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.isFile" id="apidoc.module.fs-utils.isFile">module fs-utils.isFile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isFile.isFile" id="apidoc.element.fs-utils.isFile.isFile">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isFile
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isFile = function (filepath) {
+  if (!exists(filepath)) {
+    return false;
+  }
+  return fs.statSync(filepath)
+    .isFile();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*/
+
+var isFile = exports.isFile = function(filepath) {
+ if (!exists(filepath)) {
+   return false;
+ }
+ return fs.statSync(filepath)
+   .<span class="apidocCodeKeywordSpan">isFile</span>();
+};
+
+/**
+* True if the filepath is a symbolic link.
+*
+* @param  {String} `filepath`
+* @return {Boolean}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.isLink" id="apidoc.module.fs-utils.isLink">module fs-utils.isLink</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isLink.isLink" id="apidoc.element.fs-utils.isLink.isLink">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isLink
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isLink = function (filepath) {
+  return exists(filepath) &amp;&amp; fs.lstatSync(filepath)
+    .isSymbolicLink();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.isPathCwd" id="apidoc.module.fs-utils.isPathCwd">module fs-utils.isPathCwd</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isPathCwd.isPathCwd" id="apidoc.element.fs-utils.isPathCwd.isPathCwd">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isPathCwd
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPathCwd = function (filepath) {
+  try {
+    var actual = fs.realpathSync(filepath);
+    return exports.equivalent(process.cwd(), actual);
+  } catch (err) {
+    return false;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.isPathInCwd" id="apidoc.module.fs-utils.isPathInCwd">module fs-utils.isPathInCwd</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.isPathInCwd.isPathInCwd" id="apidoc.element.fs-utils.isPathInCwd.isPathInCwd">
+        function <span class="apidocSignatureSpan">fs-utils.</span>isPathInCwd
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPathInCwd = function (filepath) {
+  try {
+    var actual = fs.realpathSync(path.resolve(filepath));
+    console.log(actual);
+    return exports.doesPathContain(process.cwd(), actual);
+  } catch (err) {
+    return false;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.last" id="apidoc.module.fs-utils.last">module fs-utils.last</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.last.last" id="apidoc.element.fs-utils.last.last">
+        function <span class="apidocSignatureSpan">fs-utils.</span>last
+        <span class="apidocSignatureSpan">(filepath, num)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">last = function (filepath, num) {
+  var seg = segments(filepath);
+  return seg.slice(-(num || 1))
+    .join(path.sep);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.lastChar" id="apidoc.module.fs-utils.lastChar">module fs-utils.lastChar</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.lastChar.lastChar" id="apidoc.element.fs-utils.lastChar.lastChar">
+        function <span class="apidocSignatureSpan">fs-utils.</span>lastChar
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lastChar = function (filepath) {
+  var len = filepath.length;
+  return filepath[len - 1];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.mkdir" id="apidoc.module.fs-utils.mkdir">module fs-utils.mkdir</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.mkdir.mkdir" id="apidoc.element.fs-utils.mkdir.mkdir">
+        function <span class="apidocSignatureSpan">fs-utils.</span>mkdir
+        <span class="apidocSignatureSpan">(dest, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdir = function (dest, cb) {
+  var dir = path.dirname(dest);
+  fs.exists(dir, function (exist) {
+    if (exist) {
+      fs.mkdir(dest, cb);
+    } else {
+      mkdir(dir, function (err) {
+        if (err) return cb(err);
+        fs.mkdir(dest, cb);
+      });
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param  {String} `dirpath`
+ */
+
+var mkdir = exports.mkdir = function(dest, cb) {
+var dir = path.dirname(dest);
+fs.exists(dir, function (exist) {
+  if (exist) {
+    fs.<span class="apidocCodeKeywordSpan">mkdir</span>(dest, cb);
+  } else {
+    mkdir(dir, function (err) {
+      if (err) return cb(err);
+      fs.mkdir(dest, cb);
+    });
+  }
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.mkdirSync" id="apidoc.module.fs-utils.mkdirSync">module fs-utils.mkdirSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.mkdirSync.mkdirSync" id="apidoc.element.fs-utils.mkdirSync.mkdirSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>mkdirSync
+        <span class="apidocSignatureSpan">(dirpath, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdirSync = function (dirpath, mode) {
+  mode = mode || parseInt('0777', 8) &amp; (~process.umask());
+  if (!exists(dirpath)) {
+    var parentDir = path.dirname(dirpath);
+    if (exists(parentDir)) {
+      fs.mkdirSync(dirpath, mode);
+    } else {
+      mkdirSync(parentDir);
+      fs.mkdirSync(dirpath, mode);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+
+var mkdirSync = exports.mkdirSync = function(dirpath, mode) {
+  mode = mode || parseInt('0777', 8) &amp; (~process.umask());
+  if (!exists(dirpath)) {
+    var parentDir = path.dirname(dirpath);
+    if (exists(parentDir)) {
+      fs.<span class="apidocCodeKeywordSpan">mkdirSync</span>(dirpath, mode);
+    } else {
+      mkdirSync(parentDir);
+      fs.mkdirSync(dirpath, mode);
+    }
+  }
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.normalize" id="apidoc.module.fs-utils.normalize">module fs-utils.normalize</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.normalize.normalize" id="apidoc.element.fs-utils.normalize.normalize">
+        function <span class="apidocSignatureSpan">fs-utils.</span>normalize
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalize = function (str){
+  if (EOL !== '\n') {
+    str = str.replace(EOLre, '\n');
+  }
+  return exports.stripBOM(str);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param  {String} `str`
+* @param  {Boolean} `stripTrailing` False by default.
+* @return {String}
+* @api public
+*/
+
+exports.slashify = function(str, trailing) {
+ return utils.<span class="apidocCodeKeywordSpan">normalize</span>(str, trailing || false);
+};
+
+/**
+* Normalize a string by stripping windows
+* carriage returns and byte order marks.
+*
+* @param  {String} `str`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.normalizePath" id="apidoc.module.fs-utils.normalizePath">module fs-utils.normalizePath</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.normalizePath.normalizePath" id="apidoc.element.fs-utils.normalizePath.normalizePath">
+        function <span class="apidocSignatureSpan">fs-utils.</span>normalizePath
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalizePath = function (filepath) {
+  return removeSlash(path.normalize(filepath));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param  {String} `filepath`
+* @return {String}
+*/
+
+var resolve = exports.resolve = function(filepath) {
+ var args = [].slice.call(arguments);
+ var paths = path.resolve.apply(path, args);
+ return exports.<span class="apidocCodeKeywordSpan">normalizePath</span>(paths);
+};
+
+/**
+* Resolve the relative path from `a` to `b.
+*
+* @param  {String} `filepath`
+* @return {String}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.readData" id="apidoc.module.fs-utils.readData">module fs-utils.readData</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readData.readData" id="apidoc.element.fs-utils.readData.readData">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readData
+        <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readData = function (filepath, options, cb) {
+  return utils.readData.data.apply(utils.readData, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.readDataSync" id="apidoc.module.fs-utils.readDataSync">module fs-utils.readDataSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readDataSync.readDataSync" id="apidoc.element.fs-utils.readDataSync.readDataSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readDataSync
+        <span class="apidocSignatureSpan">(filepath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readDataSync = function (filepath, options) {
+  return utils.readData.data.sync.apply(utils.readData, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.readFile" id="apidoc.module.fs-utils.readFile">module fs-utils.readFile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readFile.readFile" id="apidoc.element.fs-utils.readFile.readFile">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readFile
+        <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFile = function (filepath, options, cb) {
+  if (typeof options === 'function') {
+    cb = options;
+    options = {};
+  }
+
+  if (typeof cb !== 'function') {
+    throw new TypeError('readfile expects callback to be a function');
+  }
+
+  var opts = utils.extend({normalize: true, encoding: 'utf8'}, options);
+
+  fs.readFile(filepath, opts.encoding, function (err, content) {
+    if (err) return cb(err);
+
+    if (opts.normalize &amp;&amp; opts.encoding === 'utf8') {
+      content = exports.normalize(content);
+    }
+    cb(null, content);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (typeof cb !== 'function') {
+  throw new TypeError('readfile expects callback to be a function');
+}
+
+var opts = utils.extend({normalize: true, encoding: 'utf8'}, options);
+
+fs.<span class="apidocCodeKeywordSpan">readFile</span>(filepath, opts.encoding, function (err, content) {
+  if (err) return cb(err);
+
+  if (opts.normalize &amp;&amp; opts.encoding === 'utf8') {
+    content = exports.normalize(content);
+  }
+  cb(null, content);
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.readFileSync" id="apidoc.module.fs-utils.readFileSync">module fs-utils.readFileSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readFileSync.readFileSync" id="apidoc.element.fs-utils.readFileSync.readFileSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readFileSync
+        <span class="apidocSignatureSpan">(filepath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFileSync = function (filepath, options) {
+  var opts = utils.extend({normalize: true, encoding: 'utf8'}, options);
+  var str = fs.readFileSync(filepath, opts.encoding);
+  if (opts.normalize &amp;&amp; opts.encoding === 'utf8') {
+    str = exports.normalize(str);
+  }
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @api public
+*/
+
+exports.isEmptyFile = function(fp) {
+ if (exists(fp) === false) {
+   return false;
+ }
+ var str = exports.<span class="apidocCodeKeywordSpan">readFileSync</span>(fp);
+ return str.length &gt; 0;
+};
+
+/**
+* Return `true` if the file exists and is empty.
+*
+* @param  {String} `filepath`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.readJSON" id="apidoc.module.fs-utils.readJSON">module fs-utils.readJSON</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readJSON.readJSON" id="apidoc.element.fs-utils.readJSON.readJSON">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readJSON
+        <span class="apidocSignatureSpan">(filepath, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readJSON = function (filepath, cb) {
+  exports.readFile(filepath, function(err, contents) {
+    if (err) return cb(err);
+
+    cb(null, JSON.parse(contents.toString()));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.readJSONSync" id="apidoc.module.fs-utils.readJSONSync">module fs-utils.readJSONSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readJSONSync.readJSONSync" id="apidoc.element.fs-utils.readJSONSync.readJSONSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readJSONSync
+        <span class="apidocSignatureSpan">(filepath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readJSONSync = function (filepath, options) {
+  return JSON.parse(exports.readFileSync(filepath, options));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.readYAML" id="apidoc.module.fs-utils.readYAML">module fs-utils.readYAML</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readYAML.readYAML" id="apidoc.element.fs-utils.readYAML.readYAML">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readYAML
+        <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readYAML = function (filepath, options, cb) {
+  return utils.readYaml.apply(utils.readYaml, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.readYAMLSync" id="apidoc.module.fs-utils.readYAMLSync">module fs-utils.readYAMLSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.readYAMLSync.readYAMLSync" id="apidoc.element.fs-utils.readYAMLSync.readYAMLSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>readYAMLSync
+        <span class="apidocSignatureSpan">(filepath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readYAMLSync = function (filepath, options) {
+  return utils.readYaml.sync.apply(utils.readYaml, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.relative" id="apidoc.module.fs-utils.relative">module fs-utils.relative</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.relative.relative" id="apidoc.element.fs-utils.relative.relative">
+        function <span class="apidocSignatureSpan">fs-utils.</span>relative
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">relative = function (a, b) {
+  return utils.relative.apply(utils.relative, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var len = arguments.length;
+  if (len === 0) {
+    return false;
+  }
+
+  var rel;
+  for (var i = 0; i &lt; len; i++) {
+    rel = path.<span class="apidocCodeKeywordSpan">relative</span>(resolve(args[i]), ancestor);
+    if (rel === '' || /\w+/.test(rel)) {
+      return false;
+    }
+  }
+  return true;
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.removeSlash" id="apidoc.module.fs-utils.removeSlash">module fs-utils.removeSlash</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.removeSlash.removeSlash" id="apidoc.element.fs-utils.removeSlash.removeSlash">
+        function <span class="apidocSignatureSpan">fs-utils.</span>removeSlash
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeSlash = function (filepath) {
+  return filepath.replace(/[\\\/]$/, '');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.resolve" id="apidoc.module.fs-utils.resolve">module fs-utils.resolve</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.resolve.resolve" id="apidoc.element.fs-utils.resolve.resolve">
+        function <span class="apidocSignatureSpan">fs-utils.</span>resolve
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function (filepath) {
+  var args = [].slice.call(arguments);
+  var paths = path.resolve.apply(path, args);
+  return exports.normalizePath(paths);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  utils.glob(patterns, opts, function (err, files) {
+    if (err) {
+      cb(err);
+      return;
+    }
+    utils.async.each(files, function (filepath, next) {
+      if (opts.cwd &amp;&amp; !exports.isAbsolute(filepath)) {
+        filepath = path.<span class="apidocCodeKeywordSpan">resolve</span>(opts.cwd, filepath);
+      }
+
+      utils.del(filepath, next);
+    }, cb);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.rmdir" id="apidoc.module.fs-utils.rmdir">module fs-utils.rmdir</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.rmdir.rmdir" id="apidoc.element.fs-utils.rmdir.rmdir">
+        function <span class="apidocSignatureSpan">fs-utils.</span>rmdir
+        <span class="apidocSignatureSpan">(dir, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rmdir = function (dir, cb) {
+  if (typeof cb !== 'function') {
+    cb = function () {};
+  }
+
+  fs.readdir(dir, function (err, files) {
+    if (err) {
+      return cb(err);
+    }
+    utils.async.each(files, function (segment, next) {
+      var dir = path.join(dir, segment);
+      fs.stat(dir, function (err, stats) {
+        if (err) {
+          return cb(err);
+        }
+        if (stats.isDirectory()) {
+          utils.del(dir, next);
+        } else {
+          fs.unlink(dir, next);
+        }
+      });
+    }, function () {
+      fs.rmdir(dir, cb);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+       if (stats.isDirectory()) {
+         utils.del(dir, next);
+       } else {
+         fs.unlink(dir, next);
+       }
+     });
+   }, function () {
+     fs.<span class="apidocCodeKeywordSpan">rmdir</span>(dir, cb);
+   });
+ });
+};
+
+/**
+* Delete folders and files recursively. Pass a callback
+* as the last argument to use utils.async.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.segments" id="apidoc.module.fs-utils.segments">module fs-utils.segments</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.segments.segments" id="apidoc.element.fs-utils.segments.segments">
+        function <span class="apidocSignatureSpan">fs-utils.</span>segments
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">segments = function (filepath) {
+  return filepath.split(/[\\\/]/g);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.slashify" id="apidoc.module.fs-utils.slashify">module fs-utils.slashify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.slashify.slashify" id="apidoc.element.fs-utils.slashify.slashify">
+        function <span class="apidocSignatureSpan">fs-utils.</span>slashify
+        <span class="apidocSignatureSpan">(str, trailing)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">slashify = function (str, trailing) {
+  return utils.normalize(str, trailing || false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.stripBOM" id="apidoc.module.fs-utils.stripBOM">module fs-utils.stripBOM</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.stripBOM.stripBOM" id="apidoc.element.fs-utils.stripBOM.stripBOM">
+        function <span class="apidocSignatureSpan">fs-utils.</span>stripBOM
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stripBOM = function (str) {
+  return str.replace(/^\uFEFF/, '');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @api private
+*/
+
+exports.normalize = function(str){
+ if (EOL !== '\n') {
+   str = str.replace(EOLre, '\n');
+ }
+ return exports.<span class="apidocCodeKeywordSpan">stripBOM</span>(str);
+};
+
+/**
+* True if the filepath actually exist.
+*
+* @param  {String} `filepath`
+* @return {Boolean}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.stripCR" id="apidoc.module.fs-utils.stripCR">module fs-utils.stripCR</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.stripCR.stripCR" id="apidoc.element.fs-utils.stripCR.stripCR">
+        function <span class="apidocSignatureSpan">fs-utils.</span>stripCR
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stripCR = function (str) {
+  return str.replace(/\r/g, '');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.utils" id="apidoc.module.fs-utils.utils">module fs-utils.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.utils" id="apidoc.element.fs-utils.utils.utils">
+        function <span class="apidocSignatureSpan">fs-utils.</span>utils
+        <span class="apidocSignatureSpan">(mod, name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">utils = function (mod, name) {
+  name = name || camelcase(mod);
+
+  // check both boolean and string in case `process.env` cases to string
+  if (process.env.UNLAZY === 'true' || process.env.UNLAZY === true) {
+    cache[name] = fn(mod);
+  }
+
+  Object.defineProperty(proxy, name, {
+    enumerable: true,
+    configurable: true,
+    get: getter
+  });
+
+  function getter() {
+    if (cache.hasOwnProperty(name)) {
+      return cache[name];
+    }
+    return (cache[name] = fn(mod));
+  }
+  return getter;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.del" id="apidoc.element.fs-utils.utils.del">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>del
+        <span class="apidocSignatureSpan">(fp, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function del(fp, options, next) {
+  if (typeof options === 'function') {
+    next = options;
+    options = {};
+  }
+  try {
+    assertDirectory(fp, options);
+    return rimraf()(fp, next);
+  } catch(err) {
+    return next(err);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+utils.async.each(files, function (segment, next) {
+  var dir = path.join(dir, segment);
+  fs.stat(dir, function (err, stats) {
+    if (err) {
+      return cb(err);
+    }
+    if (stats.isDirectory()) {
+      utils.<span class="apidocCodeKeywordSpan">del</span>(dir, next);
+    } else {
+      fs.unlink(dir, next);
+    }
+  });
+}, function () {
+  fs.rmdir(dir, cb);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.extend" id="apidoc.element.fs-utils.utils.extend">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>extend
+        <span class="apidocSignatureSpan">(o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extend(o) {
+  if (!isObject(o)) { o = {}; }
+
+  var len = arguments.length;
+  for (var i = 1; i &lt; len; i++) {
+    var obj = arguments[i];
+
+    if (isObject(obj)) {
+      assign(o, obj);
+    }
+  }
+  return o;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * @param  {String} `filepath`
+ * @return {String}
+ * @api public
+ */
+
+exports.readFileSync = function(filepath, options) {
+  var opts = utils.<span class="apidocCodeKeywordSpan">extend</span>({normalize: true, encoding: 'utf8'}, options);
+  var str = fs.readFileSync(filepath, opts.encoding);
+  if (opts.normalize &amp;&amp; opts.encoding === 'utf8') {
+    str = exports.normalize(str);
+  }
+  return str;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.glob" id="apidoc.element.fs-utils.utils.glob">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>glob
+        <span class="apidocSignatureSpan">(patterns, config, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">glob = function (patterns, config, cb) {
+  if (typeof config === 'function') {
+    cb = config;
+    config = {};
+  }
+
+  if (typeof cb !== 'function') {
+    throw new Error('expected a callback function.');
+  }
+
+  if (!utils.isValidGlob(patterns)) {
+    cb(new Error('invalid glob pattern: ' + patterns));
+    return;
+  }
+
+  // shallow clone options
+  var options = utils.extend({cwd: ''}, config);
+  options.cwd = cwd(options);
+  var sifted = siftPatterns(patterns, options);
+  var Glob = utils.glob.Glob;
+  var glob;
+
+  function updateOptions(inclusive) {
+    return setIgnores(options, sifted.excludes, inclusive.index);
+  }
+
+  utils.reduce(sifted.includes, [], function (acc, include, next) {
+    var opts = updateOptions(include);
+    if (acc.glob) {
+      opts.cache = acc.glob.cache;
+    }
+
+    glob = new Glob(include.pattern, opts, function (err, files) {
+      if (err) return next(err);
+
+      acc = acc.concat(files);
+      acc.glob = glob;
+      next(null, acc);
+    });
+  }, function(err, files) {
+    if (err) return cb(err);
+    delete files.glob;
+    cb(null, files);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+exports.deleteAsync = function(patterns, opts, cb) {
+if (typeof opts !== 'object') {
+  cb = opts;
+  opts = {};
+}
+
+utils.<span class="apidocCodeKeywordSpan">glob</span>(patterns, opts, function (err, files) {
+  if (err) {
+    cb(err);
+    return;
+  }
+  utils.async.each(files, function (filepath, next) {
+    if (opts.cwd &amp;&amp; !exports.isAbsolute(filepath)) {
+      filepath = path.resolve(opts.cwd, filepath);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.isAbs" id="apidoc.element.fs-utils.utils.isAbs">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>isAbs
+        <span class="apidocSignatureSpan">(fp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isAbsolute(fp) {
+  if (typeof fp !== 'string') {
+    throw new TypeError('isAbsolute expects a string.');
+  }
+  return isWindows() ? isAbsolute.win32(fp) : isAbsolute.posix(fp);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.normalize" id="apidoc.element.fs-utils.utils.normalize">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>normalize
+        <span class="apidocSignatureSpan">(str, stripTrailing)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function normalizePath(str, stripTrailing) {
+  if (typeof str !== 'string') {
+    throw new TypeError('expected a string');
+  }
+  str = str.replace(/[\\\/]+/g, '/');
+  if (stripTrailing !== false) {
+    str = removeTrailingSeparator(str);
+  }
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param  {String} `str`
+* @param  {Boolean} `stripTrailing` False by default.
+* @return {String}
+* @api public
+*/
+
+exports.slashify = function(str, trailing) {
+ return utils.<span class="apidocCodeKeywordSpan">normalize</span>(str, trailing || false);
+};
+
+/**
+* Normalize a string by stripping windows
+* carriage returns and byte order marks.
+*
+* @param  {String} `str`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.readYaml" id="apidoc.element.fs-utils.utils.readYaml">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>readYaml
+        <span class="apidocSignatureSpan">(filepath, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readYaml(filepath, options, cb) {
+  if (typeof options === 'function') {
+    cb = options;
+    options = {};
+  }
+
+  var opts = extend({}, options, {filename: filepath});
+
+  fs.readFile(filepath, options, function(err, buf) {
+    if (err) {
+      cb(err);
+      return;
+    }
+
+    var data;
+
+    try {
+      data = yaml.safeLoad(buf, opts);
+    } catch (err) {
+      cb(err);
+      return;
+    }
+
+    cb(null, data);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.relative" id="apidoc.element.fs-utils.utils.relative">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>relative
+        <span class="apidocSignatureSpan">(a, b, stat)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function relative(a, b, stat) {
+  if (typeof a !== 'string') {
+    throw new TypeError('relative expects a string.');
+  }
+
+  if (a == '' &amp;&amp; !b) return a;
+
+  var len = arguments.length;
+  if (len === 1) {
+    b = a; a = process.cwd(); stat = null;
+  }
+
+  if (len === 2 &amp;&amp; typeof b === 'boolean') {
+    b = a; a = process.cwd(); stat = true;
+  }
+
+  if (len === 2 &amp;&amp; typeof b === 'object') {
+    stat = b; b = a; a = process.cwd();
+  }
+
+  var origB = b;
+
+  // see if a slash exists before normalizing
+  var slashA = endsWith(a, '/');
+  var slashB = endsWith(b, '/');
+
+  a = unixify(a);
+  b = unixify(b);
+
+  // if `a` had a slash, add it back
+  if (slashA) { a = a + '/'; }
+
+  if (isFile(a, stat)) {
+    a = path.dirname(a);
+  }
+
+  var res = path.relative(a, b);
+  if (res === '') {
+    return '.';
+  }
+
+  // if `b` originally had a slash, and the path ends
+  // with `b` missing a slash, then re-add the slash.
+  var noslash = trimEnd(origB, '/');
+  if (slashB &amp;&amp; (res === noslash || endsWith(res, noslash))) {
+    res = res + '/';
+  }
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var len = arguments.length;
+  if (len === 0) {
+    return false;
+  }
+
+  var rel;
+  for (var i = 0; i &lt; len; i++) {
+    rel = path.<span class="apidocCodeKeywordSpan">relative</span>(resolve(args[i]), ancestor);
+    if (rel === '' || /\w+/.test(rel)) {
+      return false;
+    }
+  }
+  return true;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.tryStat" id="apidoc.element.fs-utils.utils.tryStat">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>tryStat
+        <span class="apidocSignatureSpan">(fp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tryStat = function (fp) {
+  try {
+    return fs.statSync(fp);
+  } catch (err) {}
+  return null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.typeOf" id="apidoc.element.fs-utils.utils.typeOf">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>typeOf
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function kindOf(val) {
+  // primitivies
+  if (typeof val === 'undefined') {
+    return 'undefined';
+  }
+  if (val === null) {
+    return 'null';
+  }
+  if (val === true || val === false || val instanceof Boolean) {
+    return 'boolean';
+  }
+  if (typeof val === 'string' || val instanceof String) {
+    return 'string';
+  }
+  if (typeof val === 'number' || val instanceof Number) {
+    return 'number';
+  }
+
+  // functions
+  if (typeof val === 'function' || val instanceof Function) {
+    return 'function';
+  }
+
+  // array
+  if (typeof Array.isArray !== 'undefined' &amp;&amp; Array.isArray(val)) {
+    return 'array';
+  }
+
+  // check for instances of RegExp and Date before calling `toString`
+  if (val instanceof RegExp) {
+    return 'regexp';
+  }
+  if (val instanceof Date) {
+    return 'date';
+  }
+
+  // other objects
+  var type = toString.call(val);
+
+  if (type === '[object RegExp]') {
+    return 'regexp';
+  }
+  if (type === '[object Date]') {
+    return 'date';
+  }
+  if (type === '[object Arguments]') {
+    return 'arguments';
+  }
+  if (type === '[object Error]') {
+    return 'error';
+  }
+
+  // buffer
+  if (typeof Buffer !== 'undefined' &amp;&amp; isBuffer(val)) {
+    return 'buffer';
+  }
+
+  // es6: Map, WeakMap, Set, WeakSet
+  if (type === '[object Set]') {
+    return 'set';
+  }
+  if (type === '[object WeakSet]') {
+    return 'weakset';
+  }
+  if (type === '[object Map]') {
+    return 'map';
+  }
+  if (type === '[object WeakMap]') {
+    return 'weakmap';
+  }
+  if (type === '[object Symbol]') {
+    return 'symbol';
+  }
+
+  // typed arrays
+  if (type === '[object Int8Array]') {
+    return 'int8array';
+  }
+  if (type === '[object Uint8Array]') {
+    return 'uint8array';
+  }
+  if (type === '[object Uint8ClampedArray]') {
+    return 'uint8clampedarray';
+  }
+  if (type === '[object Int16Array]') {
+    return 'int16array';
+  }
+  if (type === '[object Uint16Array]') {
+    return 'uint16array';
+  }
+  if (type === '[object Int32Array]') {
+    return 'int32array';
+  }
+  if (type === '[object Uint32Array]') {
+    return 'uint32array';
+  }
+  if (type === '[object Float32Array]') {
+    return 'float32array';
+  }
+  if (type === '[object Float64Array]') {
+    return 'float64array';
+  }
+
+  // must be a plain object
+  return 'object';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.writeData" id="apidoc.element.fs-utils.utils.writeData">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>writeData
+        <span class="apidocSignatureSpan">(dest, data, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeData = function (dest, data, options, cb) {
+  if (typeof options === 'function') {
+    cb = options;
+    options = {};
+  }
+
+  if (typeof cb !== 'function') {
+    throw new TypeError('write-data async expects a callback function.');
+  }
+  if (typeof dest !== 'string') {
+    return cb(new TypeError('write-data async expects dest to be a string.'));
+  }
+  if (typeof data !== 'object') {
+    return cb(new TypeError('write-data async expects data to be an object.'));
+  }
+
+  var defaults = {ext: path.extname(dest), indent: 2};
+  var opts = utils.extend({}, defaults, options);
+
+  var ext = opts.ext;
+  if (ext.charAt(0) === '.') {
+    ext = ext.slice(1);
+  }
+
+  switch (ext) {
+    case 'json':
+      return utils.writeJson(dest, data, cb);
+    case 'yml':
+    case 'yaml':
+      return utils.writeYaml(dest, data, opts, cb);
+    default: {
+      cb(new Error('writeData does not support file extension: ' + ext));
+      return;
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.writeFile" id="apidoc.element.fs-utils.utils.writeFile">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>writeFile
+        <span class="apidocSignatureSpan">(dest, str, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function writeFile(dest, str, cb) {
+  var dir = path.dirname(dest);
+  fs.exists(dir, function (exists) {
+    if (exists) {
+      fs.writeFile(dest, str, cb);
+    } else {
+      mkdir(dir, function (err) {
+        if (err) {
+          return cb(err);
+        } else {
+          fs.writeFile(dest, str, cb);
+        }
+      });
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.writeJson" id="apidoc.element.fs-utils.utils.writeJson">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>writeJson
+        <span class="apidocSignatureSpan">(dest, obj, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function writeJson(dest, obj, cb) {
+  writeFile(dest, JSON.stringify(obj, null, 2), cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.utils.writeYaml" id="apidoc.element.fs-utils.utils.writeYaml">
+        function <span class="apidocSignatureSpan">fs-utils.utils.</span>writeYaml
+        <span class="apidocSignatureSpan">(dest, data, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeYaml = function (dest, data, opts, cb) {
+  if (typeof opts === 'function') {
+    cb = opts;
+    opts = {};
+  }
+
+  if (typeof cb !== 'function') {
+    throw new TypeError('write-yaml async expects a callback function.');
+  }
+  if (typeof dest !== 'string') {
+    return cb(new TypeError('write-yaml async expects dest to be a string.'));
+  }
+  if (typeof data !== 'object') {
+    return cb(new TypeError('write-yaml async expects data to be an object.'));
+  }
+
+  opts = utils.extend({}, defaults, opts);
+  var yaml = opts.safe ? utils.YAML.safeDump : utils.YAML.dump;
+
+  utils.writeFile(dest, yaml(data, opts), cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.writeData" id="apidoc.module.fs-utils.writeData">module fs-utils.writeData</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeData.writeData" id="apidoc.element.fs-utils.writeData.writeData">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeData
+        <span class="apidocSignatureSpan">(dest, data, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeData = function (dest, data, options, cb) {
+  utils.writeData.apply(utils.writeData, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.writeDataSync" id="apidoc.module.fs-utils.writeDataSync">module fs-utils.writeDataSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeDataSync.writeDataSync" id="apidoc.element.fs-utils.writeDataSync.writeDataSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeDataSync
+        <span class="apidocSignatureSpan">(dest, data, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeDataSync = function (dest, data, options) {
+  utils.writeData.sync.apply(utils.writeData, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.writeFile" id="apidoc.module.fs-utils.writeFile">module fs-utils.writeFile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeFile.writeFile" id="apidoc.element.fs-utils.writeFile.writeFile">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeFile
+        <span class="apidocSignatureSpan">(dest, content, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeFile = function (dest, content, cb) {
+  utils.writeFile.apply(utils.writeFile, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.writeFileSync" id="apidoc.module.fs-utils.writeFileSync">module fs-utils.writeFileSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeFileSync.writeFileSync" id="apidoc.element.fs-utils.writeFileSync.writeFileSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeFileSync
+        <span class="apidocSignatureSpan">(dest, str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeFileSync = function (dest, str, options) {
+  utils.writeFile.sync.apply(utils.writeFile, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+* @param  {String} `src`
+* @param  {String} `dest`
+* @api public
+*/
+
+exports.copyFileSync = function(src, dest) {
+ exports.<span class="apidocCodeKeywordSpan">writeFileSync</span>(dest, exports.readFileSync(src));
+};
+
+/**
+* Asynchronously remove dirs and child dirs that exist.
+*
+* @param  {String} `dir`
+* @param  {Function} `cb
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.writeJSON" id="apidoc.module.fs-utils.writeJSON">module fs-utils.writeJSON</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeJSON.writeJSON" id="apidoc.element.fs-utils.writeJSON.writeJSON">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeJSON
+        <span class="apidocSignatureSpan">(dest, str, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeJSON = function (dest, str, options, cb) {
+  utils.writeJson.apply(utils.writeJson, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.writeJSONSync" id="apidoc.module.fs-utils.writeJSONSync">module fs-utils.writeJSONSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeJSONSync.writeJSONSync" id="apidoc.element.fs-utils.writeJSONSync.writeJSONSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeJSONSync
+        <span class="apidocSignatureSpan">(dest, str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeJSONSync = function (dest, str, options) {
+  utils.writeJson.sync.apply(utils.writeJson, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.writeYAML" id="apidoc.module.fs-utils.writeYAML">module fs-utils.writeYAML</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeYAML.writeYAML" id="apidoc.element.fs-utils.writeYAML.writeYAML">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeYAML
+        <span class="apidocSignatureSpan">(dest, data, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeYAML = function (dest, data, options, cb) {
+  utils.writeYaml.apply(utils.writeYaml, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-utils.writeYAMLSync" id="apidoc.module.fs-utils.writeYAMLSync">module fs-utils.writeYAMLSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-utils.writeYAMLSync.writeYAMLSync" id="apidoc.element.fs-utils.writeYAMLSync.writeYAMLSync">
+        function <span class="apidocSignatureSpan">fs-utils.</span>writeYAMLSync
+        <span class="apidocSignatureSpan">(dest, str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeYAMLSync = function (dest, str, options) {
+  utils.writeYaml.sync.apply(utils.writeYaml, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
