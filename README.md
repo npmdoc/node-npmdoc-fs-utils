@@ -1,4 +1,7 @@
-# api documentation for  [fs-utils (v0.7.0)](https://github.com/assemble/fs-utils)  [![npm package](https://img.shields.io/npm/v/npmdoc-fs-utils.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-fs-utils) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-fs-utils.svg)](https://travis-ci.org/npmdoc/node-npmdoc-fs-utils)
+# npmdoc-fs-utils
+
+#### basic api documentation for  [fs-utils (v0.7.0)](https://github.com/assemble/fs-utils)  [![npm package](https://img.shields.io/npm/v/npmdoc-fs-utils.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-fs-utils) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-fs-utils.svg)](https://travis-ci.org/npmdoc/node-npmdoc-fs-utils)
+
 #### fs extras and utilities to extend the node.js file system module. Used in Assemble and many other projects.
 
 [![NPM](https://nodei.co/npm/fs-utils.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/fs-utils)
@@ -105,7 +108,8 @@
             ]
         }
     },
-    "version": "0.7.0"
+    "version": "0.7.0",
+    "bin": {}
 }
 ```
 
